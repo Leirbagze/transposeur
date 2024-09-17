@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <head>
+        <title>Transposeur</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="instrument">
+                <label for="instrument">Tonalité de l'instrument :</label>
+                <select id="instrument">
+                    <option value="C">Ut (C)</option>
+                    <option value="Bb">Si♭ (B♭)</option>
+                    <option value="F">Fa (F)</option>
+                    <option value="Eb">Mi♭ (E♭)</option>
+                    <option value="A">La (A)</option>
+                    <option value="E">Mi (E)</option>
+                </select>
+                <label for="clé">Clé :</label>
+                <select id="clé">
+                    <option value="Sol">Sol</option>
+                    <option value="Fa">Fa</option>
+                    <option value="Ut3">Ut 3</option>
+                    <option value="Ut4">Ut 4</option>
+                </select>
+                <span>Armure :</span>
+                <div class="select">
+                    <div class="select-title" data-value="0"><img src="content/0.png"></div>
+                    <div class="select-items">
+                        <div data-value="0"><img src="content/0.png"></div>
+                        <div data-value="1d"><img src="content/1d.png"></div>
+                        <div data-value="1b"><img src="content/1b.png"></div>
+                        <div data-value="2d"><img src="content/2d.png"></div>
+                        <div data-value="2b"><img src="content/2b.png"></div>
+                        <div data-value="3d"><img src="content/3d.png"></div>
+                        <div data-value="3b"><img src="content/3b.png"></div>
+                        <div data-value="4d"><img src="content/4d.png"></div>
+                        <div data-value="4b"><img src="content/4b.png"></div>
+                        <div data-value="5d"><img src="content/5d.png"></div>
+                        <div data-value="5b"><img src="content/5b.png"></div>
+                        <div data-value="6d"><img src="content/6d.png"></div>
+                        <div data-value="6b"><img src="content/6b.png"></div>
+                        <div data-value="7d"><img src="content/7d.png"></div>
+                        <div data-value="7b"><img src="content/7b.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="transposer">
+                <label for="tonalité">Tonalité à transposer :</label>
+                <select id="tonalité">
+                    <option value="C">Ut (C)</option>
+                    <option value="Bb">Si♭ (B♭)</option>
+                    <option value="F">Fa (F)</option>
+                    <option value="Eb">Mi♭ (E♭)</option>
+                    <option value="A">La (A)</option>
+                    <option value="E">Mi (E)</option>
+                </select>
+            </div>
+            <button>Valider</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
