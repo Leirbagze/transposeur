@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="main-container">
+        <form id="myform">
             <div class="instrument">
                 <label for="instrument">Tonalité de l'instrument :</label>
                 <select id="instrument">
@@ -43,6 +43,7 @@
                         <div data-value="7b"><img src="content/7b.png"></div>
                     </div>
                 </div>
+                <input type="hidden" id="selected-value" name="selected-value" value="">
             </div>
             <div class="transposer">
                 <label for="tonalité">Tonalité à transposer :</label>
@@ -55,8 +56,9 @@
                     <option value="E">Mi (E)</option>
                 </select>
             </div>
-            <button>Valider</button>
-        </div>
+            <button type="submit">Valider</button>
+        </form>
+        <div id="result"></div>
         <script src="script.js"></script>
     </body>
 </html>
