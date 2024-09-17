@@ -4,8 +4,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form id="myform">
-            <div class="instrument">
+        <form id="form">
+            <div class="container">
                 <label for="instrument">Tonalité de l'instrument :</label>
                 <select id="instrument">
                     <option value="C">Ut (C)</option>
@@ -26,26 +26,28 @@
                 <div class="select">
                     <div class="select-title" data-value="0"><img src="content/0.png"></div>
                     <div class="select-items">
-                        <div data-value="0"><img src="content/0.png"></div>
-                        <div data-value="1d"><img src="content/1d.png"></div>
-                        <div data-value="1b"><img src="content/1b.png"></div>
-                        <div data-value="2d"><img src="content/2d.png"></div>
-                        <div data-value="2b"><img src="content/2b.png"></div>
-                        <div data-value="3d"><img src="content/3d.png"></div>
-                        <div data-value="3b"><img src="content/3b.png"></div>
-                        <div data-value="4d"><img src="content/4d.png"></div>
-                        <div data-value="4b"><img src="content/4b.png"></div>
-                        <div data-value="5d"><img src="content/5d.png"></div>
-                        <div data-value="5b"><img src="content/5b.png"></div>
-                        <div data-value="6d"><img src="content/6d.png"></div>
-                        <div data-value="6b"><img src="content/6b.png"></div>
-                        <div data-value="7d"><img src="content/7d.png"></div>
-                        <div data-value="7b"><img src="content/7b.png"></div>
+                        <div class="option" data-value="0"><img src="content/0.png"></div>
+                        <div id="bemols" class="armure">
+                            <div class="option" data-value="1b"><img src="content/1b.png"></div>
+                            <div class="option" data-value="2b"><img src="content/2b.png"></div>
+                            <div class="option" data-value="3b"><img src="content/3b.png"></div>
+                            <div class="option" data-value="4b"><img src="content/4b.png"></div>
+                            <div class="option" data-value="5b"><img src="content/5b.png"></div>
+                            <div class="option" data-value="6b"><img src="content/6b.png"></div>
+                            <div class="option" data-value="7b"><img src="content/7b.png"></div>
+                        </div>
+                        <div id="dieses" class="armure">
+                            <div class="option" data-value="1d"><img src="content/1d.png"></div>
+                            <div class="option" data-value="2d"><img src="content/2d.png"></div>
+                            <div class="option" data-value="3d"><img src="content/3d.png"></div>
+                            <div class="option" data-value="4d"><img src="content/4d.png"></div>
+                            <div class="option" data-value="5d"><img src="content/5d.png"></div>
+                            <div class="option" data-value="6d"><img src="content/6d.png"></div>
+                            <div class="option" data-value="7d"><img src="content/7d.png"></div>
+                        </div>
                     </div>
                 </div>
-                <input type="hidden" id="selected-value" name="selected-value" value="">
-            </div>
-            <div class="transposer">
+                <input type="hidden" id="selected-value" name="selected-value" value="0">
                 <label for="tonalité">Tonalité à transposer :</label>
                 <select id="tonalité">
                     <option value="C">Ut (C)</option>

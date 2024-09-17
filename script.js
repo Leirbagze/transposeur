@@ -1,24 +1,24 @@
-const select = document.querySelector('.select-title');
+const titre = document.querySelector('.select-title');
 const items = document.querySelector('.select-items');
+console.log(document.getElementsByClassName("option"))
 
-select.addEventListener('click', () => {
-    console.log(items.style.display === 'none'|| items.style.display === '' ? 'block' : 'none');
-    items.style.display = items.style.display === 'none' || items.style.display === '' ? 'block' : 'none';
+titre.addEventListener('click', () => {
+    items.style.display = items.style.display === 'none' || items.style.display === '' ? 'block' : 'none'; //toggle
 });
-document.querySelectorAll('.select-items div').forEach(item => {
+document.querySelectorAll(".armure div").forEach(item => {
     item.addEventListener('click', function() {
-        select.innerHTML = `<img src="${this.querySelector('img').src}">`;
-        document.getElementById('selected-value').value = this.getAttribute('data-value');
-        items.style.display = 'none';
+        titre.innerHTML = `<img src="${this.querySelector('img').src}">`;
+        document.getElementById('selected-value').value = this.getAttribute('data-value'); //envoyer données au form
+        document.querySelector(".select-items").style.display = 'none';
     });
 });
 window.addEventListener('click', function(e) {
     if (!e.target.closest('.select')) {
-        items.style.display = 'none';
+        this.document.getElementsByClassName("armure").style.display = 'none';
     }
 });
 
-document.getElementById('myform').addEventListener('submit', function(e) {
+document.getElementById('form').addEventListener('submit', function(e) {
     e.preventDefault(); // Empêche l'envoi du formulaire au serveur
 
     // Récupérer la valeur sélectionnée
