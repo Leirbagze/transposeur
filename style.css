@@ -5,10 +5,9 @@
     align-items: center;
 }
 
-.instrument {
+.armure {
     display: flex;
     flex-direction: column;
-    width: 30%;
 }
 
 select {
