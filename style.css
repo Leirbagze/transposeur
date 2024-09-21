@@ -8,6 +8,19 @@
 .armure {
     display: flex;
     flex-direction: column;
+    width: 50%;
+}
+
+.armure div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.armure div:hover {
+    background-color: #f1f1f1;
 }
 
 select {
@@ -22,6 +35,7 @@ select {
 .select-items {
     position: absolute;
     display: none;
+    flex-direction: row;
     border: 1px solid #ddd;
     z-index: 99;
     width: 100%;
@@ -31,23 +45,15 @@ select {
 }
 
 .select-items div {
-    padding: 10px;
-    cursor: pointer;
     display: flex;
-    align-items: center;
 }
 
-.select-items div img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+.armure div img {
+    width: 40px;
+    height: auto;
 }
 
-.select-items div:hover {
-    background-color: #f1f1f1;
-}
-
-.select-title {
+.titre {
     padding: 10px;
     border: 1px solid #ddd;
     cursor: pointer;
