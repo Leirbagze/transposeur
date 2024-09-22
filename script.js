@@ -1,6 +1,8 @@
-var titre = document.querySelector('.titre');
+const titre = document.querySelector('.titre');
 const items = document.querySelector('.select-items');
 const input = document.getElementById('selected-value');
+const notes = [0,-5,2,-3,4,-1,-6,1,-4,3,-2,5];
+const k = ["Sol","Ut 4","Ut 1","Fa 3","Ut 2","Fa","Ut 3"]
 
 titre.addEventListener('click', () => {
     items.style.display = items.style.display === 'none' || items.style.display === '' ? 'flex' : 'none'; //toggle
@@ -18,7 +20,7 @@ document.querySelectorAll(".armure div").forEach(item => {
             });
         }
         swap(this, input.value);
-        var that = this;
+        let that = this;
         if (that.parentElement.id === "dieses"){
             triArmure("dieses");
         }
@@ -39,8 +41,8 @@ function swap(element, armure){
 function triArmure(id){
     let tableau = Array.from(document.querySelectorAll(`#${id} .option`));
     tableau.sort((a, b) => {
-        let numA = parseInt(a.getAttribute('data-value'));
-        let numB = parseInt(b.getAttribute('data-value'));
+        let numA = Math.abs(parseInt(a.getAttribute('data-value')));
+        let numB = Math.abs(parseInt(b.getAttribute('data-value')));
         return numA - numB;
     });
     document.getElementById(id).innerHTML = '';
@@ -49,12 +51,45 @@ function triArmure(id){
     });
 }
 
+function transposer(i,c,p){
+    let res = parseInt(c)-parseInt(p)+parseInt(i);
+    if (res<0){
+        res+=7;
+    }
+    if (res>6){
+        res-=7;
+    }
+    return res;
+}
+
+function envoyerForm(){
+    let armure = parseInt(document.getElementById('selected-value').value);
+    let instrument = parseInt(document.getElementById('instrument').value);
+    let clé = parseInt(document.getElementById('clé').value);
+    let partition = parseInt(document.getElementById('partition').value);
+    let Narmure = armure+partition-instrument;
+    if (Narmure < -7){
+        Narmure += 12;
+    }
+    if (Narmure > 7){
+        Narmure -= 12;
+    }
+    let euybfyuebf = notes.indexOf(Narmure-armure);
+    if (euybfyuebf > 6){
+        euybfyuebf -= 12;
+    }
+    console.log(euybfyuebf)
+    if (Narmure > 0){
+        console.log(Math.ceil(euybfyuebf/2))
+    }
+    else {
+        console.log(Math.floor(euybfyuebf/2))
+    }
+    //let Nclé = k[t];
+    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${"Nclé"}<br>Armure : <img src="content/${Narmure}.png"</p>`;
+}
+
 document.getElementById('form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Empêche l'envoi du formulaire au serveur
-
-    // Récupérer la valeur sélectionnée
-    const selectedValue = document.getElementById('selected-value').value;
-
-    // Afficher le résultat sur la page
-    document.getElementById('result').innerHTML = `<p>Valeur sélectionnée : ${selectedValue}</p>`;
+    e.preventDefault();
+    envoyerForm();
 });
