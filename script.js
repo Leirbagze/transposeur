@@ -68,25 +68,29 @@ function envoyerForm(){
     let clé = parseInt(document.getElementById('clé').value);
     let partition = parseInt(document.getElementById('partition').value);
     let Narmure = armure+partition-instrument;
+    let Nclé;
     if (Narmure < -7){
         Narmure += 12;
     }
     if (Narmure > 7){
         Narmure -= 12;
     }
-    let euybfyuebf = notes.indexOf(Narmure-armure);
-    if (euybfyuebf > 6){
-        euybfyuebf -= 12;
+    if (!(Narmure % 2)){
+        console.log("test")
+        Nclé = Narmure/2;
+        if (Nclé > 6){
+            Nclé -= 7;
+            console.log("+1")
+        }
+        if (Nclé < -6){
+            Nclé += 7;
+            console.log("+1")
+        }
     }
-    console.log(euybfyuebf)
-    if (Narmure > 0){
-        console.log(Math.ceil(euybfyuebf/2))
-    }
-    else {
-        console.log(Math.floor(euybfyuebf/2))
-    }
-    //let Nclé = k[t];
-    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${"Nclé"}<br>Armure : <img src="content/${Narmure}.png"</p>`;
+    console.log(Nclé)
+    console.log(clé)
+    Nclé = k[Math.abs(Nclé-clé)];
+    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"</p>`;
 }
 
 document.getElementById('form').addEventListener('submit', function(e) {
