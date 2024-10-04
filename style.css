@@ -58,3 +58,13 @@ select {
     border: 1px solid #ddd;
     cursor: pointer;
 }
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 640px){
+    .mobile {
+        display: block;
+    }
+}
