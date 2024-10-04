@@ -91,7 +91,8 @@ function envoyerForm(){
     console.log(Nclé)
     console.log(clé)
     Nclé = k[Math.abs(Nclé-clé)];
-    document.getElementById('test').innerHTML = `<p>${typeof(Narmure-armure)}</p>`;
+    let test = typeof(Narmure-armure);
+    document.getElementById('test').innerHTML = `<p>${test}</p>`;
     document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"</p>`;
 }
 
