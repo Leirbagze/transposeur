@@ -68,32 +68,37 @@ function envoyerForm(){
     let clé = parseInt(document.getElementById('clé').value);
     let partition = parseInt(document.getElementById('partition').value);
     let Narmure = armure+partition-instrument;
+    let armure2 = Narmure - armure;
     let Nclé;
+    let i = 0;
     if (Narmure < -7){
+        console.log("<-7")
         Narmure += 12;
+        i+=1;
     }
     if (Narmure > 7){
+        console.log(">7")
         Narmure -= 12;
+        i-=1;
     }
-    let armure2 = Narmure - armure;
+    console.log(!(armure2 % 2))
     if (!(armure2 % 2)){
-        console.log("test")
-        Nclé = armure2/2;
-        if (Nclé > 6){
-            Nclé -= 7;
-            console.log("+1")
+        Nclé = armure2/2 - clé + i;
+        if (Nclé > 0){
+            Nclé = k[-Nclé+7]
         }
-        if (Nclé < -6){
-            Nclé += 7;
-            console.log("+1")
+        else {
+            Nclé = k[-Nclé];
         }
+        document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
     }
-    console.log(Nclé)
-    console.log(clé)
-    Nclé = k[Math.abs(Nclé-clé)];
-    let test = Narmure-armure;
-    document.getElementById('test').innerHTML = `<p>${test}</p>`;
-    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"</p>`;
+    else {
+        let Nclé1 = Math.floor(armure2/2);
+        let Nclé2 = Math.ceil(armure2/2);
+        Nclé1 = k[Math.abs(Nclé1-clé)];
+        Nclé2 = k[Math.abs(Nclé2-clé)];
+        document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé1}<br>Armure : <img src="content/${Narmure}.png"></p>ou<p>Clé de lecture : ${Nclé2}<br>Armure : <img src="content/${Narmure}.png"`;
+    }
 }
 
 document.getElementById('form').addEventListener('submit', function(e) {
