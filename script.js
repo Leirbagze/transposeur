@@ -75,9 +75,10 @@ function envoyerForm(){
     if (Narmure > 7){
         Narmure -= 12;
     }
-    if (!(Narmure % 2)){
+    let armure2 = Narmure - armure;
+    if (!(armure2 % 2)){
         console.log("test")
-        Nclé = Narmure/2;
+        Nclé = armure2/2;
         if (Nclé > 6){
             Nclé -= 7;
             console.log("+1")
