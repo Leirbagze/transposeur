@@ -81,7 +81,7 @@ function envoyerForm(){
         Narmure -= 12;
         i-=1;
     }
-    console.log(!(armure2 % 2))
+    console.log("pair : ",!(armure2 % 2))
     if (!(armure2 % 2)){
         Nclé = armure2/2 - clé + i;
         if (Nclé > 0){
