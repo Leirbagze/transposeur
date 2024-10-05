@@ -93,11 +93,10 @@ function envoyerForm(){
         document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
     }
     else {
-        let Nclé1 = Math.floor(armure2/2);
-        let Nclé2 = Math.ceil(armure2/2);
-        Nclé1 = k[Math.abs(Nclé1-clé)];
-        Nclé2 = k[Math.abs(Nclé2-clé)];
-        document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé1}<br>Armure : <img src="content/${Narmure}.png"></p>ou<p>Clé de lecture : ${Nclé2}<br>Armure : <img src="content/${Narmure}.png"`;
+        let indice = indexOf(armure2 - clé + i);
+        Nclé = Math.ceil(indice/2);
+        Nclé = k[-Nclé];
+        document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
     }
 }
 
