@@ -81,7 +81,6 @@ function envoyerForm(){
         Narmure -= 12;
         i-=1;
     }
-    console.log("pair : ",!(armure2 % 2))
     if (!(armure2 % 2)){
         Nclé = armure2/2 - clé + i;
         if (Nclé > 0){
@@ -90,14 +89,13 @@ function envoyerForm(){
         else {
             Nclé = k[-Nclé];
         }
-        document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
     }
     else {
-        let indice = indexOf(armure2 - clé + i);
-        Nclé = Math.ceil(indice/2);
-        Nclé = k[-Nclé];
-        document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
+        let indice = notes.indexOf(armure2 - clé);
+        Nclé = Math.ceil(indice/2) + i;
+        Nclé = k[-Nclé + 7];
     }
+    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
 }
 
 document.getElementById('form').addEventListener('submit', function(e) {
