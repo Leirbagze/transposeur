@@ -2,7 +2,7 @@ const titre = document.querySelector('.titre');
 const items = document.querySelector('.select-items');
 const input = document.getElementById('selected-value');
 const notes = [0,-5,2,-3,4,-1,-6,1,-4,3,-2,5];
-const k = ["Sol","Ut 4","Ut 1","Fa 3","Ut 2","Fa","Ut 3"]
+const k = ["Sol","Ut 4","Ut 1","Fa 3","Ut 2","Fa","Ut 3"];
 
 titre.addEventListener('click', () => {
     items.style.display = items.style.display === 'none' || items.style.display === '' ? 'flex' : 'none'; //toggle
@@ -30,6 +30,11 @@ document.querySelectorAll(".armure div").forEach(item => {
         document.querySelector(".select-items").style.display = 'none';
     });
 });
+window.addEventListener('click', function(e) {
+    if (!e.target.closest('.select')) {
+        items.style.display = 'none';
+    }
+});
 
 function swap(element, armure){
     element.setAttribute("data-value", titre.getAttribute('data-value'));
@@ -51,15 +56,17 @@ function triArmure(id){
     });
 }
 
-function transposer(i,c,p){
-    let res = parseInt(c)-parseInt(p)+parseInt(i);
-    if (res<0){
-        res+=7;
+function transposer(Narmure, armure){
+    let i = 0;
+    if (Narmure < -7 || Narmure > 7) {
+        i += (Narmure < -7) ? 1 : -1;
+        Narmure += (Narmure < -7) ? 12 : -12;
     }
-    if (res>6){
-        res-=7;
+    let indice = notes.indexOf(armure);
+    if (indice > 6) {
+        indice -= 12;
     }
-    return res;
+    return Math.ceil(indice/2) - i;
 }
 
 function envoyerForm(){
@@ -67,35 +74,24 @@ function envoyerForm(){
     let instrument = parseInt(document.getElementById('instrument').value);
     let clé = parseInt(document.getElementById('clé').value);
     let partition = parseInt(document.getElementById('partition').value);
-    let Narmure = armure+partition-instrument;
-    let armure2 = Narmure - armure;
-    let Nclé;
-    let i = 0;
-    if (Narmure < -7){
-        console.log("<-7")
-        Narmure += 12;
-        i+=1;
+    let res = {
+        armure: armure + partition - instrument,
+        clé,
     }
-    if (Narmure > 7){
-        console.log(">7")
-        Narmure -= 12;
-        i-=1;
+    let armure2 = res.armure - armure;
+    /*let i = 0;
+    if (Narmure < -7 || Narmure > 7) {
+        i += (Narmure < -7) ? 1 : -1;
+        Narmure += (Narmure < -7) ? 12 : -12;
     }
-    if (!(armure2 % 2)){
-        Nclé = armure2/2 - clé + i;
-        if (Nclé > 0){
-            Nclé = k[-Nclé+7]
-        }
-        else {
-            Nclé = k[-Nclé];
-        }
+    let indice = notes.indexOf(armure2);
+    if (indice > 6) {
+        indice -= 12;
     }
-    else {
-        let indice = notes.indexOf(armure2 - clé);
-        Nclé = Math.ceil(indice/2) + i;
-        Nclé = k[-Nclé + 7];
-    }
-    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${Nclé}<br>Armure : <img src="content/${Narmure}.png"></p>`;
+    Nclé = Math.ceil(indice/2) - i;*/
+    // Nclé = transposer(armure2);
+    res.clé = k.at((-transposer(res.armure,armure2) + clé) % k.length);
+    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${res.clé}<br>Armure : <img src="content/${res.armure}.png"></p>`;
 }
 
 document.getElementById('form').addEventListener('submit', function(e) {
