@@ -62,7 +62,7 @@ function transposer(Narmure, armure){
         i += (Narmure < -7) ? 1 : -1;
         Narmure += (Narmure < -7) ? 12 : -12;
     }
-    let indice = notes.indexOf(armure);
+    let indice = notes.indexOf(Narmure - armure);
     if (indice > 6) {
         indice -= 12;
     }
@@ -78,8 +78,8 @@ function envoyerForm(){
         armure: armure + partition - instrument,
         clé,
     }
-    let armure2 = res.armure - armure;
-    /*let i = 0;
+    /*let armure2 = res.armure - armure;
+    let i = 0;
     if (Narmure < -7 || Narmure > 7) {
         i += (Narmure < -7) ? 1 : -1;
         Narmure += (Narmure < -7) ? 12 : -12;
@@ -90,7 +90,7 @@ function envoyerForm(){
     }
     Nclé = Math.ceil(indice/2) - i;*/
     // Nclé = transposer(armure2);
-    res.clé = k.at((-transposer(res.armure,armure2) + clé) % k.length);
+    res.clé = k.at((-transposer(res.armure, armure) + clé) % k.length);
     document.getElementById('result').innerHTML = `<p>Clé de lecture : ${res.clé}<br>Armure : <img src="content/${res.armure}.png"></p>`;
 }
 
