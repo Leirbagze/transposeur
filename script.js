@@ -56,17 +56,24 @@ function triArmure(id){
     });
 }
 
-function transposer(Narmure, armure){
+function transposer(res, armure){
     let i = 0;
-    if (Narmure < -7 || Narmure > 7) {
-        i += (Narmure < -7) ? 1 : -1;
-        Narmure += (Narmure < -7) ? 12 : -12;
+    if (res.armure < -7 || res.armure > 7) {
+        i += (res.armure < -7) ? 1 : -1;
+        res.armure += (res.armure < -7) ? 12 : -12;
     }
-    let indice = notes.indexOf(Narmure - armure);
+    console.log("res.armure : ", res.armure)
+    console.log("armure : ", armure)
+    let difference = res.armure - armure;
+    if (difference > 7){
+        difference -= 12;
+    }
+    let indice = notes.indexOf(difference);
+    console.log("indice : ", indice)
     if (indice > 6) {
         indice -= 12;
     }
-    return Math.ceil(indice/2) - i;
+    return (Math.ceil(indice/2) - i);
 }
 
 function envoyerForm(){
@@ -90,7 +97,8 @@ function envoyerForm(){
     }
     Nclé = Math.ceil(indice/2) - i;*/
     // Nclé = transposer(armure2);
-    res.clé = k.at((-transposer(res.armure, armure) + clé) % k.length);
+    let test = transposer(res, armure);
+    res.clé = k.at((-test + clé) % k.length);
     document.getElementById('result').innerHTML = `<p>Clé de lecture : ${res.clé}<br>Armure : <img src="content/${res.armure}.png"></p>`;
 }
 
