@@ -57,19 +57,16 @@ function triArmure(id){
 }
 
 function transposer(res, armure){
+    let difference = res.armure - armure;
     let i = 0;
     if (res.armure < -7 || res.armure > 7) {
         i += (res.armure < -7) ? 1 : -1;
         res.armure += (res.armure < -7) ? 12 : -12;
     }
-    console.log("res.armure : ", res.armure)
-    console.log("armure : ", armure)
-    let difference = res.armure - armure;
     if (difference > 7){
         difference -= 12;
     }
     let indice = notes.indexOf(difference);
-    console.log("indice : ", indice)
     if (indice > 6) {
         indice -= 12;
     }
