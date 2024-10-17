@@ -4,6 +4,12 @@ const input = document.getElementById('selected-value');
 const notes = [0,-5,2,-3,4,-1,-6,1,-4,3,-2,5];
 const k = ["Sol","Ut 4","Ut 1","Fa 3","Ut 2","Fa","Ut 3"];
 
+/*$('#instrument').select2({
+    width: 'style'
+});*/
+
+window.onload = envoyerForm();
+
 titre.addEventListener('click', () => {
     items.style.display = items.style.display === 'none' || items.style.display === '' ? 'flex' : 'none'; //toggle
 });
@@ -31,7 +37,7 @@ document.querySelectorAll(".armure div").forEach(item => {
     });
 });
 window.addEventListener('click', function(e) {
-    if (!e.target.closest('.select')) {
+    if (!e.target.closest('.h-select')) {
         items.style.display = 'none';
     }
 });
@@ -82,21 +88,26 @@ function envoyerForm(){
         armure: armure + partition - instrument,
         clé,
     }
-    /*let armure2 = res.armure - armure;
-    let i = 0;
-    if (Narmure < -7 || Narmure > 7) {
-        i += (Narmure < -7) ? 1 : -1;
-        Narmure += (Narmure < -7) ? 12 : -12;
-    }
-    let indice = notes.indexOf(armure2);
-    if (indice > 6) {
-        indice -= 12;
-    }
-    Nclé = Math.ceil(indice/2) - i;*/
-    // Nclé = transposer(armure2);
     let test = transposer(res, armure);
     res.clé = k.at((-test + clé) % k.length);
-    document.getElementById('result').innerHTML = `<p>Clé de lecture : ${res.clé}<br>Armure : <img src="content/${res.armure}.png"></p>`;
+    document.getElementById('result').style.width = window.getComputedStyle(document.getElementsByClassName("champ")[0]).width;
+    document.getElementById('result').innerHTML = `
+    <div class="ligne" style="flex-grow:1;">
+        <div class="nom cambay-regular">
+            Clé de lecture :
+        </div>
+        <div class="reponse" style="display:flex;justify-content:center;">
+            ${res.clé}
+        </div>
+    </div>
+    <div class="ligne" style="flex-grow:1;">
+        <div class="nom cambay-regular">
+            Armure :
+        </div>
+        <div class="reponse">
+            <img src="content/${res.armure}.png">
+        </div>
+    </div>`;
 }
 
 document.getElementById('form').addEventListener('submit', function(e) {

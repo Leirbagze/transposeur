@@ -2,71 +2,110 @@
     <head>
         <title>Transposeur</title>
         <link rel="stylesheet" href="style.css">
+        <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
     </head>
     <body>
-        <form id="form">
+        <div class="main-container">
+            <div class="image cambay-bold" style="color:white;font-size:x-large;">
+                Transposeur (v test)
+            </div>
             <div class="container">
-                <label for="instrument">Tonalité de l'instrument :</label>
-                <select id="instrument">
-                    <option value= "0" >Ut (C) (cordes, piano, flûte, trombone, ...)</option>
-                    <option value= "-2" >Si♭ (B♭) (clarinette, trompette, sax alto et tenor, ...)</option>
-                    <option value= "-1" >Fa (F) (cor, cor anglais, tuba)</option>
-                    <option value= "-3" >Mi♭ (E♭) (petite clarinette, sax alto et baryton, Souba, ...)</option>
-                    <option value= "3" >La (A) (clarinette)</option>
-                    <option value= "4" >Mi (E) (cor)</option>
-                    <option value= "-5" >Ré♭ (D♭) (piccolo, petite flûte)</option>
-                    <option value= "2" >Ré (D) (trompette)</option>
-                    <option value= "1" >Sol (G) (flûte alto)</option>
-                </select>
-                <label for="clé">Clé :</label>
-                <select id="clé">
-                    <option value= 0 >Sol</option>
-                    <option value= 5 >Fa</option>
-                    <option value= 6 >Ut 3</option>
-                    <option value= 1 >Ut 4</option>
-                </select>
-                <span>Armure :</span>
-                <div class="select">
-                    <div class="titre" data-value="0"><img src="content/0.png"></div>
-                    <div class="select-items">
-                        <div id="bemols" class="armure">
-                            <div class="option" data-value= "-1" ><img src="content/-1.png"></div>
-                            <div class="option" data-value= "-2" ><img src="content/-2.png"></div>
-                            <div class="option" data-value= "-3" ><img src="content/-3.png"></div>
-                            <div class="option" data-value= "-4" ><img src="content/-4.png"></div>
-                            <div class="option" data-value= "-5" ><img src="content/-5.png"></div>
-                            <div class="option" data-value= "-6" ><img src="content/-6.png"></div>
-                            <div class="option" data-value= "-7" ><img src="content/-7.png"></div>
-                        </div>
-                        <div id="dieses" class="armure">
-                            <div class="option" data-value= "1" ><img src="content/1.png"></div>
-                            <div class="option" data-value= "2" ><img src="content/2.png"></div>
-                            <div class="option" data-value= "3" ><img src="content/3.png"></div>
-                            <div class="option" data-value= "4" ><img src="content/4.png"></div>
-                            <div class="option" data-value= "5" ><img src="content/5.png"></div>
-                            <div class="option" data-value= "6" ><img src="content/6.png"></div>
-                            <div class="option" data-value= "7" ><img src="content/7.png"></div>
+                <form id="form">
+                    <div class="champ">
+                        <div class="titre-champ bebas-neue-regular">instrument</div>
+                        <div class="ligne">
+                            <div class="nom cambay-regular">
+                                <label for="instrument">Tonalité de l'instrument :</label>
+                            </div>
+                            <div class="reponse">
+                                <select id="instrument" class="cambay-regular">
+                                    <option value= "0" >Ut (C) (cordes, piano, flûte, trombone, ...)</option>
+                                    <option value= "-2" >Si♭ (B♭) (clarinette, trompette, sax alto et tenor, ...)</option>
+                                    <option value= "-1" >Fa (F) (cor, cor anglais, tuba)</option>
+                                    <option value= "-3" >Mi♭ (E♭) (petite clarinette, sax alto et baryton, Souba, ...)</option>
+                                    <option value= "3" >La (A) (clarinette)</option>
+                                    <option value= "4" >Mi (E) (cor)</option>
+                                    <option value= "-5" >Ré♭ (D♭) (piccolo, petite flûte)</option>
+                                    <option value= "2" >Ré (D) (trompette)</option>
+                                    <option value= "1" >Sol (G) (flûte alto)</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <div class="champ">
+                        <div class="titre-champ bebas-neue-regular">partition</div>
+                        <div class="ligne">
+                            <div class="nom cambay-regular">
+                                <label for="clé">Clé :</label>
+                            </div>
+                            <div class="reponse">
+                                <select id="clé" class="cambay-regular">
+                                    <option value= 0 >Sol</option>
+                                    <option value= 5 >Fa</option>
+                                    <option value= 6 >Ut 3</option>
+                                    <option value= 1 >Ut 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ligne">
+                            <div class="nom cambay-regular">
+                                <span>Armure :</span>
+                            </div>
+                            <div class="h-select" class="reponse">
+                                <div class="titre" data-value="0"><img src="content/0.png"></div>
+                                <div class="select-items">
+                                    <div id="bemols" class="armure">
+                                        <div class="option" data-value= "-1" ><img src="content/-1.png"></div>
+                                        <div class="option" data-value= "-2" ><img src="content/-2.png"></div>
+                                        <div class="option" data-value= "-3" ><img src="content/-3.png"></div>
+                                        <div class="option" data-value= "-4" ><img src="content/-4.png"></div>
+                                        <div class="option" data-value= "-5" ><img src="content/-5.png"></div>
+                                        <div class="option" data-value= "-6" ><img src="content/-6.png"></div>
+                                        <div class="option" data-value= "-7" ><img src="content/-7.png"></div>
+                                    </div>
+                                    <div id="dieses" class="armure">
+                                        <div class="option" data-value= "1" ><img src="content/1.png"></div>
+                                        <div class="option" data-value= "2" ><img src="content/2.png"></div>
+                                        <div class="option" data-value= "3" ><img src="content/3.png"></div>
+                                        <div class="option" data-value= "4" ><img src="content/4.png"></div>
+                                        <div class="option" data-value= "5" ><img src="content/5.png"></div>
+                                        <div class="option" data-value= "6" ><img src="content/6.png"></div>
+                                        <div class="option" data-value= "7" ><img src="content/7.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="selected-value" name="selected-value" value="0">
+                        </div>
+                        <div class="ligne">
+                            <div class="nom cambay-regular">
+                                <label for="partition">Tonalité de la partition :</label>
+                            </div>
+                            <div class="reponse">
+                                <select id="partition" class="cambay-regular">
+                                    <option value= "0" >Ut (C)</option>
+                                    <option value= "-2" >Si♭ (B♭)</option>
+                                    <option value= "-1" >Fa (F)</option>
+                                    <option value= "-3" >Mi♭ (E♭)</option>
+                                    <option value= "3" >La (A)</option>
+                                    <option value= "4" >Mi (E)</option>
+                                    <option value= "-5" >Ré♭ (D♭)</option>
+                                    <option value= "2" >Ré (D)</option>
+                                    <option value= "1" >Sol (G)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="champ">
+                        <button class="button-31" type="submit">transposer</button>
+                    </div>
+                </form>
+                <div id="result" class="champ2">
                 </div>
-                <input type="hidden" id="selected-value" name="selected-value" value="0">
-                <label for="partition">Tonalité de la partition :</label>
-                <select id="partition">
-                    <option value= "0" >Ut (C)</option>
-                    <option value= "-2" >Si♭ (B♭)</option>
-                    <option value= "-1" >Fa (F)</option>
-                    <option value= "-3" >Mi♭ (E♭)</option>
-                    <option value= "3" >La (A)</option>
-                    <option value= "4" >Mi (E)</option>
-                    <option value= "-5" >Ré♭ (D♭)</option>
-                    <option value= "2" >Ré (D)</option>
-                    <option value= "1" >Sol (G)</option>
-                </select>
+                <div id="test">aaa</div>
             </div>
-            <button type="submit">Valider</button>
-        </form>
-        <!--<div class="mobile" id="test"></div>-->
-        <div id="result"></div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>

@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cambay-regular {
+    font-family: "Cambay", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cambay-bold {
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}   
+
+.cambay-regular-italic {
+    font-family: "Cambay", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}   
+
+.cambay-bold-italic {
+    font-family: "Cambay", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -24,12 +57,13 @@
 }
 
 select {
-    width: 40%;
+    width: 100%;
 }
 
-.select {
+.h-select {
     position: relative;
     display: inline-block;
+    width: 50%;
 }
 
 .select-items {
@@ -54,17 +88,144 @@ select {
 }
 
 .titre {
-    padding: 10px;
-    border: 1px solid #ddd;
+    width: 100px;
+    height: 100px;
+    padding: 2px;
+    border: 1px solid #818181;
     cursor: pointer;
+    border-radius: 3px;
+    background-color: #ffffff;
 }
 
-.mobile {
+.titre:hover {
+    border:1px solid #444444;
+}
+
+.nom {
+    text-wrap: balance;
+}
+
+/*media*/
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    min-width: 400px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    background-color: rgb(129, 129, 129);
+}
+
+.container {
+    display: flex;
+    flex-grow: 1;
+    background-color: rgb(236, 244, 255);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10%;
+}
+
+.champ {
+    display: flex;
+    flex-direction: column;
+}
+
+.ligne {
+    min-height: 30px;
+    max-height: 110px;
+}
+
+.champ2 {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(215, 225, 240);
+}
+
+.champ2 img {
+    max-width: 100%;
+}
+
+.ligne {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+
+.reponse, .nom {
+    width: 50%;
+}
+
+.titre-champ {
+    display: flex;
+    justify-content: center;
+    margin: 5% 20%;
+    padding: 5px;
+    color: #ffffff;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+.button-31 {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 5% 25%;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 1% 10% .8%;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-31:hover,
+.button-31:focus {
+    opacity: .75;
+}
+
+#test {
     display: none;
 }
 
-@media (max-width: 640px){
-    .mobile {
-        display: block;
+@media only screen and (min-width: 768px) {
+    .main-container {
+        width: 35%;
     }
 }
